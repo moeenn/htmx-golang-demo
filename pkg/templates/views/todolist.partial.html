@@ -1,0 +1,9 @@
+{{ range .Todos }}
+<div>
+  <label>
+    <input type="checkbox" {{ if .Complete}} checked {{ end }} hx-get="/toggle?id={{ .Id }}" />  
+    <span>{{ .Text }}</span>
+  </label>
+<div>
+{{ end }}
+
