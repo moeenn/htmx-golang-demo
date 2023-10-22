@@ -34,3 +34,23 @@ func (db *Database) TodoToggle(id string) {
 		}
 	}
 }
+
+func (db Database) findTodoById(id string) int {
+	for i, todo := range db.Todos {
+		if todo.Id == id {
+			return i
+		}
+	}
+
+	return -1
+}
+
+func (db *Database) TodoRemove(id string) {
+	index := db.findTodoById(id)
+	if index == -1 {
+		// TODO: handle error
+		return
+	}
+
+	db.Todos = append(db.Todos[:index], db.Todos[index+1:]...)
+}

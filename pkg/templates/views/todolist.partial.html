@@ -1,8 +1,3 @@
 {{ range .Todos }}
-<div class="todo-entry">  
-  <label>
-    <input type="checkbox" {{ if .Complete}} checked {{ end }} hx-get="/toggle?id={{ .Id }}" />  
-    <span>{{ .Text }}</span>
-  </label>
-</div>
+{{template "todoItem.partial.html" .}}
 {{ end }}

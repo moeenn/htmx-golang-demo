@@ -17,6 +17,7 @@ func main() {
 	mux.HandleFunc("/", controllers.ListAllTodosHandler)
 	mux.HandleFunc("/add-todo", controllers.AddTodoHandler)
 	mux.HandleFunc("/toggle", controllers.ToggleTodoStatusHandler)
+	mux.HandleFunc("/remove", controllers.TodoRemoveHandle)
 
 	// serve static files
 	fs := http.FileServer(http.Dir("./public"))

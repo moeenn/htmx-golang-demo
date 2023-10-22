@@ -11,13 +11,15 @@
 <body>
   <main>
     <section>
-      <form hx-post="/add-todo" hx-ext="json-enc" hx-target="#todo-list" hx-swap="innerHTML">
+      <form hx-post="/add-todo" hx-ext="json-enc" hx-target="#todo-list" hx-swap="beforeend">
         <fieldset> 
           <input type="text" name="new" id="new" placeholder="Add item" />
           <input type="submit" name="submit" id="submit" />
         </fieldset>
       </form>
     </section>
+
+    <hr />
 
     <section id="todo-list">
       {{template "todolist.partial.html" .}}

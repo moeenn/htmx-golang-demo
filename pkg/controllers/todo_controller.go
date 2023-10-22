@@ -31,6 +31,13 @@ func AddTodoHandler(w http.ResponseWriter, r *http.Request) {
 	todo := todo.New(body.New, false)
 	db.Get().TodoAdd(todo)
 
+	templates.Get().ExecuteTemplate(w, "todoItem.partial.html", todo)
+}
+
+func ToggleTodoStatusHandler(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
+	db.Get().TodoToggle(id)
+
 	args := ListAllTodosTemplateArgs{
 		Todos: db.Get().TodoAll(),
 	}
@@ -38,9 +45,9 @@ func AddTodoHandler(w http.ResponseWriter, r *http.Request) {
 	templates.Get().ExecuteTemplate(w, "todolist.partial.html", args)
 }
 
-func ToggleTodoStatusHandler(w http.ResponseWriter, r *http.Request) {
+func TodoRemoveHandle(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
-	db.Get().TodoToggle(id)
+	db.Get().TodoRemove(id)
 
 	args := ListAllTodosTemplateArgs{
 		Todos: db.Get().TodoAll(),
