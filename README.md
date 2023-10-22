@@ -1,5 +1,5 @@
 # HTMX GoLang Demo
-A demo application integrating golang native HTML templating with HTMX. The application is a simple TODO list application where are responses from the server are in HTML instead of JSON.
+A demo application integrating golang native HTML templating with HTMX. The application is a simple TODO list application where are responses from the server are in HTML format instead of JSON.
 
 
 ## Running the application
@@ -7,4 +7,4 @@ A demo application integrating golang native HTML templating with HTMX. The appl
 $ go run .
 ```
 
-**Note**: The applocation will run on port 5000 by default.
+**Note**: The applocation will run on port 3000 by default.

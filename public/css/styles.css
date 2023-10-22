@@ -1,0 +1,52 @@
+:root {
+  --space: 2rem;
+  --color-dull: hsl(0, 0%, 85%);
+  --color-light: hsl(0, 0%, 95%);
+  --border: 1px solid var(--color-dull);
+}
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: var(--space);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+  border: var(--border);
+  margin-top: calc(var(--space) / 2);
+  margin-bottom: calc(var(--space) / 2);
+}
+
+input {
+  border: var(--border);
+  padding: calc(var(--space) / 4) calc(var(--space) / 3);
+  background-color: var(--color-light);
+}
+
+form fieldset {
+  display: flex;
+  border: none;
+}
+
+form input[type="text"] {
+  flex: 1;
+}
+
+#todo-list {
+  padding-top: calc(var(--space) / 2);
+}
+
+.todo-entry {
+  padding: calc(var(--space) / 4) 0;
+  display: flex;
+}
+
+.todo-entry :is(label, span) {
+  margin-top: auto;
+  margin-bottom: auto;
+}

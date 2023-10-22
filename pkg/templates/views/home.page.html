@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
-    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
-    <title>Page Title</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/public/css/styles.css" />
+<script src="/public/js/htmx.min.js"></script>
+<script src="/public/js/json-enc.js"></script>
+<title>HTMX Demo - Todo App</title>
+
 <body>
-  <h1>Todos</h1>
-  <hr />
+  <main>
+    <section>
+      <form hx-post="/add-todo" hx-ext="json-enc" hx-target="#todo-list" hx-swap="innerHTML">
+        <fieldset> 
+          <input type="text" name="new" id="new" placeholder="Add item" />
+          <input type="submit" name="submit" id="submit" />
+        </fieldset>
+      </form>
+    </section>
 
-  <div>
-    <form hx-post="/add-todo" hx-ext="json-enc" hx-target="#todo-list" hx-swap="innerHTML">
-      <input type="text" name="new" placeholder="Add item" />
-      <input type="submit" />
-    </form>
-  </div>
-
-  <hr />
-
-  <div id="todo-list">  
-    {{template "todolist.partial.html" .}}
-  </div>
+    <section id="todo-list">
+      {{template "todolist.partial.html" .}}
+    </section>
+  </main>
 </body>
+
 </html>
