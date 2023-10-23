@@ -1,0 +1,18 @@
+{{ template "base.layout" . }}
+
+{{ define "content" }}
+<section>
+  <form hx-post="/add-todo" hx-ext="json-enc" hx-target="#todo-list" hx-swap="beforeend">
+    <fieldset> 
+      <input type="text" name="new" id="new" placeholder="Add item" />
+      <input type="submit" name="submit" id="submit" />
+    </fieldset>
+  </form>
+</section>
+
+<hr />
+
+<section id="todo-list">
+  {{template "todolist.partial.html" .}}
+</section>
+{{ end }}
