@@ -1,7 +1,0 @@
-<div class="todo-entry">  
-  <label>
-    <input type="checkbox" {{ if .Complete}} checked {{ end }} hx-get="/toggle?id={{ .Id }}" />  
-    <span>{{ .Text }}</span>
-    <button hx-get="/remove?id={{ .Id }}" hx-target="#todo-list">Delete</button>
-  </label>
-</div>

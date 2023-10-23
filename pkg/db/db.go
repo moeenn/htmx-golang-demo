@@ -1,56 +1,54 @@
 package db
 
 import (
-	"sandbox/pkg/todo"
+	"sandbox/pkg/user"
 )
 
 var db *Database
 
 type Database struct {
-	Todos []todo.Todo
+	Users []user.User
 }
 
 func Get() *Database {
 	if db == nil {
 		db = &Database{
-			Todos: []todo.Todo{},
+			Users: []user.User{},
 		}
 	}
 	return db
 }
 
-func (db Database) TodoAll() []todo.Todo {
-	return db.Todos
+func (db Database) UsersAll() []user.User {
+	return db.Users
 }
 
-func (db *Database) TodoAdd(item todo.Todo) {
-	db.Todos = append(db.Todos, item)
+func (db *Database) UserAdd(item user.User) {
+	db.Users = append(db.Users, item)
 }
 
-func (db *Database) TodoToggle(id string) {
-	for i := 0; i < len(db.Todos); i++ {
-		if db.Todos[i].Id == id {
-			db.Todos[i].Complete = !db.Todos[i].Complete
+func (db *Database) UserActiveToggle(id string) {
+	for i := 0; i < len(db.Users); i++ {
+		if db.Users[i].Id == id {
+			db.Users[i].Active = !db.Users[i].Active
 		}
 	}
 }
 
-func (db Database) findTodoById(id string) int {
-	for i, todo := range db.Todos {
-		if todo.Id == id {
+func (db Database) findUserById(id string) int {
+	for i, user := range db.Users {
+		if user.Id == id {
 			return i
 		}
 	}
-
 	return -1
 }
 
-func (db *Database) TodoRemove(id string) {
-	index := db.findTodoById(id)
+func (db *Database) UserRemove(id string) {
+	index := db.findUserById(id)
 	if index == -1 {
-		// TODO: handle error
 		return
 	}
 
-	db.Todos = append(db.Todos[:index], db.Todos[index+1:]...)
+	db.Users = append(db.Users[:index], db.Users[index+1:]...)
 }

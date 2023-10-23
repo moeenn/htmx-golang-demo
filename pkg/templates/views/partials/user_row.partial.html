@@ -1,0 +1,9 @@
+<tr class="user-entry">
+  <td>{{ .Email }}</td>
+  <td>{{ if .Active }} Yes {{ else }} No {{ end }}</td>
+  <td>
+    <button hx-get="/toggle?id={{ .Id }}" hx-target="#users-list">Toggle</button>
+    <button hx-get="/remove?id={{ .Id }}" hx-target="#users-list"
+      hx-confirm="Are you sure you want to delete this user?">Delete</button>
+  </td>
+</tr>

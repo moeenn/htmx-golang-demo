@@ -2,7 +2,7 @@
   --space: 2rem;
   --color-dull: hsl(0, 0%, 85%);
   --color-light: hsl(0, 0%, 95%);
-  --border: 1px solid var(--color-dull);
+  --border: 1px dashed var(--color-dull);
 }
 
 :is(*, ::before, ::after) {
@@ -16,11 +16,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-hr {
-  border: var(--border);
-  margin-top: calc(var(--space) / 2);
-  margin-bottom: calc(var(--space) / 2);
-  border-style: dashed;
+section {
+  padding: calc(var(--space) / 4) 0;
 }
 
 input, button {
@@ -34,29 +31,22 @@ form fieldset {
   border: none;
 }
 
-form input[type="text"] {
+form input[type="email"] {
   flex: 1;
 }
 
-#todo-list {
-  padding-top: calc(var(--space) / 2);
+table {
+  width: 100%;
 }
 
-.todo-entry label {
+table th {
+  font-weight: normal;
+  text-align: start;
+  font-size: 0.8rem;
   padding: calc(var(--space) / 4) 0;
-  display: flex;
-  cursor: pointer;
+  border-bottom: var(--border);
 }
 
-.todo-entry :is(label, span) {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.todo-entry span {
-  flex: 1;
-}
-
-.todo-entry input[type="checkbox"] {
-  margin-right: calc(var(--space) / 4);
+table td {
+  padding: calc(var(--space) / 4) 0; 
 }

@@ -14,10 +14,10 @@ func main() {
 	mux := http.NewServeMux()
 
 	// register all request handlers
-	mux.HandleFunc("/", controllers.ListAllTodosHandler)
-	mux.HandleFunc("/add-todo", controllers.AddTodoHandler)
-	mux.HandleFunc("/toggle", controllers.ToggleTodoStatusHandler)
-	mux.HandleFunc("/remove", controllers.TodoRemoveHandle)
+	mux.HandleFunc("/", controllers.ListAllUsersHandler)
+	mux.HandleFunc("/add-user", controllers.AddUserHandler)
+	mux.HandleFunc("/toggle", controllers.ToggleUserStatusHandler)
+	mux.HandleFunc("/remove", controllers.UserRemoveHandle)
 
 	// serve static files
 	fs := http.FileServer(http.Dir("./public"))

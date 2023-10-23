@@ -2,17 +2,26 @@
 
 {{ define "content" }}
 <section>
-  <form hx-post="/add-todo" hx-ext="json-enc" hx-target="#todo-list" hx-swap="beforeend">
-    <fieldset> 
-      <input type="text" name="new" id="new" placeholder="Add item" />
+  <form hx-post="/add-user" hx-ext="json-enc" hx-target="#users-list" hx-swap="beforeend">
+    <fieldset>
+      <input type="email" name="email" id="email" placeholder="Email" />
       <input type="submit" name="submit" id="submit" />
     </fieldset>
   </form>
 </section>
 
-<hr />
-
-<section id="todo-list">
-  {{template "todolist.partial.html" .}}
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="users-list">
+      {{ template "user_table_rows.partial.html" . }}
+    </tbody>
+  </table>
 </section>
 {{ end }}
