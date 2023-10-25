@@ -1,6 +1,4 @@
-{{ template "base.layout" . }}
-
-{{ define "content" }}
+{{ template "base.layout.start" . }}
 <section>
   <form hx-post="/add-user" hx-ext="json-enc" hx-target="#users-list" hx-swap="beforeend">
     <fieldset>
@@ -24,4 +22,4 @@
     </tbody>
   </table>
 </section>
-{{ end }}
+{{ template "base.layout.end" . }}
