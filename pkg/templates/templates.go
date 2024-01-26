@@ -1,6 +1,7 @@
 package templates
 
 import (
+	"embed"
 	"html/template"
 	"io"
 	"sandbox/pkg/user"
@@ -9,9 +10,9 @@ import (
 var tmpl *template.Template
 
 /* templates will be parsed once at package first import */
-func init() {
+func Initialize(fs embed.FS) {
 	if tmpl == nil {
-		tmpl = template.Must(template.ParseGlob("./pkg/templates/views/**/*.html"))
+		tmpl = template.Must(template.ParseFS(fs, "views/**/*.html"))
 	}
 }
 
