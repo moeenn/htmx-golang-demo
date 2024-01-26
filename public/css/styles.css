@@ -2,7 +2,7 @@
   --space: 2rem;
   --color-dull: hsl(0, 0%, 85%);
   --color-light: hsl(0, 0%, 95%);
-  --border: 1px dashed var(--color-dull);
+  --border: 1px solid var(--color-dull);
 }
 
 :is(*, ::before, ::after) {

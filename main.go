@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"sandbox/pkg/controllers"
 )
 
@@ -24,5 +26,8 @@ func main() {
 	mux.Handle("/public/", http.StripPrefix("/public", fs))
 
 	log.Printf("running on %s\n", ADDRESS)
-	http.ListenAndServe(ADDRESS, mux)
+	if err := http.ListenAndServe(ADDRESS, mux); err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to start web server: %s\n", err.Error())
+		os.Exit(1)
+	}
 }
