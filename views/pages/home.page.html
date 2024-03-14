@@ -1,6 +1,6 @@
 {{ template "base.layout.start" . }}
 <section>
-  <form hx-post="/add-user" hx-ext="json-enc" hx-target="#users-list" hx-swap="beforeend">
+  <form hx-post="/add-user" hx-target="#users-list" hx-swap="beforeend">
     <fieldset>
       <input type="email" name="email" id="email" placeholder="Email" />
       <input type="submit" name="submit" id="submit" />
